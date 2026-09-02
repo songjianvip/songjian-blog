@@ -1,0 +1,156 @@
+/* ============ 全局设计变量：简洁留白风 ============ */
+:root {
+  /* 色彩 */
+  --color-primary: #4a6cf7;
+  --color-primary-dark: #3a56d4;
+  --color-bg: #ffffff;
+  --color-bg-soft: #fafafa;
+  --color-bg-muted: #f4f5f7;
+  --color-text: #1f2329;
+  --color-text-secondary: #5c6470;
+  --color-text-muted: #9aa1ab;
+  --color-border: #e8eaed;
+  --color-hover: #f0f3ff;
+
+  /* 字体 */
+  --font-serif: 'Georgia', 'Songti SC', 'SimSun', serif;
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC',
+    'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', Consolas, 'Courier New', monospace;
+
+  /* 布局 */
+  --container-width: 760px;
+  --container-wide: 1080px;
+  --header-height: 60px;
+
+  /* 圆角与阴影 */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --shadow-sm: 0 1px 3px rgba(31, 35, 41, 0.06);
+  --shadow-md: 0 4px 16px rgba(31, 35, 41, 0.08);
+
+  /* 过渡 */
+  --transition: all 0.25s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  line-height: 1.7;
+  font-size: 15px;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+a:hover {
+  color: var(--color-primary-dark);
+}
+
+img {
+  max-width: 100%;
+  border-radius: var(--radius-sm);
+}
+
+/* 文章标题字体用衬线体，凸显阅读质感 */
+.serif {
+  font-family: var(--font-serif);
+}
+
+/* ============ 通用工具类 ============ */
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.container-wide {
+  max-width: var(--container-wide);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section-title {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  position: relative;
+  padding-left: 14px;
+}
+
+.section-title::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 4px;
+  bottom: 4px;
+  width: 4px;
+  border-radius: 2px;
+  background: var(--color-primary);
+}
+
+.muted {
+  color: var(--color-text-muted);
+  font-size: 13px;
+}
+
+/* ============ 页面切换动画 ============ */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.fade-enter-from {
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+.fade-leave-to {
+  opacity: 0;
+}
+
+/* ============ 滚动条 ============ */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d3d6db;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #b9bec6;
+}
+
+/* ============ 文章排版 ============ */
+@import './markdown.scss';
+
+/* ============ Element Plus 全局微调 ============ */
+.el-pagination.is-background .el-pager li {
+  border-radius: var(--radius-sm);
+}
+
+.el-button--primary {
+  --el-button-bg-color: var(--color-primary);
+  --el-button-border-color: var(--color-primary);
+  --el-button-hover-bg-color: var(--color-primary-dark);
+  --el-button-hover-border-color: var(--color-primary-dark);
+}
