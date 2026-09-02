@@ -23,7 +23,13 @@
       </el-button>
     </div>
 
-    <el-drawer v-model="drawer" direction="rtl" size="240px" :with-header="false">
+    <el-drawer
+      v-model="drawer"
+      direction="rtl"
+      size="240px"
+      :with-header="false"
+      append-to-body
+    >
       <div class="drawer-nav">
         <router-link
           v-for="item in navItems"
